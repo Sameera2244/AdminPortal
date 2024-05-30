@@ -36,7 +36,7 @@ const vendorsPage = async ({ searchParams }) => {
               <td>
                 <div className={styles.vendor}>
                   <Image
-                    src={vendor.img || "/novendor.jpg"}
+                    src={vendor.img || "/noavatar.png"}
                     alt=""
                     width={40}
                     height={40}

@@ -28,13 +28,13 @@
     padding: 10px;
   }
   
-  .vendor{
+  .vendormanagement{
     display: flex;
     align-items: center;
     gap: 10px;
   }
   
-  .vendorImage{
+  .vendormanagementImage{
     border-radius: 50%;
     object-fit: cover;
   }

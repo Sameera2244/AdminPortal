@@ -125,8 +125,10 @@ export const updatevendor = async (formData) => {
   revalidatePath("/dashboard/vendor");
   redirect("/dashboard/vendor");
 };
+
+
 export const addvendormanagement = async (formData) => {
-  const {  CompanyName,Type1,Location,TINNo,TINNoExpiryDate,PurchaseorderNo } =
+  const { CompanyName,Type,Location,TinNo,TinNoExpiryDate,PurchaseOrderNo,VendorDetails} =
     Object.fromEntries(formData);
 
   try {
@@ -134,11 +136,12 @@ export const addvendormanagement = async (formData) => {
 
     const newvendormanagement = new vendormanagement({
       CompanyName,
-      Type1,
+      Type,
       Location,
-      TINNo,
-      TINNoExpiryDate,
-      PurchaseorderNo,
+      TinNo,
+      TinNoExpiryDate,
+      PurchaseOrderNo,
+      VendorDetails,
     });
 
     await newvendormanagement.save();
@@ -152,7 +155,7 @@ export const addvendormanagement = async (formData) => {
 };
 
 export const updatevendormanagement = async (formData) => {
-  const { id,CompanyName,Type1,Location,TINNo,TINNoExpiryDate,PurchaseOrderNo } =
+  const { id,CompanyName,Type,Location,TinNo,TinNoExpiryDate,PurchaseOrderNo,VendorDetails } =
     Object.fromEntries(formData);
 
   try {
@@ -160,11 +163,12 @@ export const updatevendormanagement = async (formData) => {
 
     const updateFields = {
       CompanyName,
-      Type1,
+      Type,
       Location,
-      TINNo,
-      TINNoExpiryDate,
+      TinNo,
+      TinNoExpiryDate,
       PurchaseOrderNo,
+      VendorDetails,
     };
 
     Object.keys(updateFields).forEach(
@@ -181,6 +185,8 @@ export const updatevendormanagement = async (formData) => {
   revalidatePath("/dashboard/vendormanagement");
   redirect("/dashboard/vendormanagement");
 };
+
+
 
 export const deleteUser = async (formData) => {
   const { id } = Object.fromEntries(formData);
@@ -209,12 +215,13 @@ export const deletevendor = async (formData) => {
 
   revalidatePath("/dashboard/vendor");
 };
+
 export const deletevendormanagement = async (formData) => {
   const { id } = Object.fromEntries(formData);
 
   try {
     connectToDB();
-    await vendormanagement.findByIdAndDelete(id);
+    await User.findByIdAndDelete(id);
   } catch (err) {
     console.log(err);
     throw new Error("Failed to delete vendormanagement!");

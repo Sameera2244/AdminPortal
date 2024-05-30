@@ -80,56 +80,38 @@ const vendormanagementSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    Type1: {
+    Type: {
       type: String,
       required: true,
-      unique: true,
-    },
-    phoneNumber: {
-      type: Number,
-      required: true,
-      unique: true,
-    },
-    EmailID: {
-      type: String,
-      required: true,
-      unique: true,
     },
     Location: {
       type: String,
       required: true,
-      unique: true,
     },
-    WebsiteAddress: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    TINNo: {
+    TinNo: {
       type: Number,
       required: true,
-      unique: true,
       min: 0,
     },
-    TINNoExpiryDate: {
-      type: String,
+    TinNoExpiryDate: {
+      type: Number,
       required: true,
-      unique: true,
       min: 0,
     },
-    PurchaseorderNo: {
+    PurchaseOrderNo: {
+      type: Number,
+      required: true,
+      min: 0,
+    },
+    VendorDetails: {
       type: String,
       required: true,
-      unique: true,
     },
-    UploadLicenseImage:{
-       type: String,
-       required:true,
-       unique: true,
-    }
   },
   { timestamps: true }
 );
+
+
 
 export const User = mongoose.models.User || mongoose.model("User", userSchema);
 export const vendor = mongoose.models.vendor || mongoose.model("vendor", vendorSchema);

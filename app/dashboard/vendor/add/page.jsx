@@ -21,7 +21,7 @@ const AddvendorPage = () => {
           name="VendorDetails"
           id="VendorDetails"
           rows="16"
-          placeholder=""
+          placeholder="VendorDetails"
         ></textarea>
         <button type="submit">Submit</button>
       </form>

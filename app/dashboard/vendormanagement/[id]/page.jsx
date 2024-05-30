@@ -1,11 +1,11 @@
 import { updatevendormanagement } from "@/app/lib/actions";
-import { fetchvendormanagements } from "@/app/lib/data";
+import { fetchvendormanagement } from "@/app/lib/data";
 import styles from "@/app/ui/dashboard/vendormanagement/singlevendormanagement/singlevendormanagement.module.css";
 import Image from "next/image";
 
 const SinglevendormanagementPage = async ({ params }) => {
   const { id } = params;
-  const vendormanagement = await fetchvendormanagements(id);
+  const vendormanagement = await fetchvendormanagement(id);
 
   return (
     <div className={styles.container}>
@@ -13,29 +13,32 @@ const SinglevendormanagementPage = async ({ params }) => {
         <div className={styles.imgContainer}>
           <Image src="/noavatar.png" alt="" fill />
         </div>
-        {vendormanagement.vendormanagements}
+        {vendormanagement.CompanyName}
       </div>
       <div className={styles.formContainer}>
         <form action={updatevendormanagement} className={styles.form}>
           <input type="hidden" name="id" value={vendormanagement.id} />
-          <label>CompanyName</label>
-          <input type="text" name="Vendormanagements" placeholder={vendormanagement.vendormanagements} />
+          <label>Company Name</label>
+          <input type="text" name="CompanyName" placeholder={vendormanagement.CompanyName} />
           <label>Type</label>
-          <select name="Type1" id="Type1">
-            <option value="Corporation">Corporation</option>
-            <option value="Partnership">partnership</option>
-            <option value="Individual">Individual</option>
-            <option value="Others">Others</option>
-          </select>
-          <label>Location</label>
-          <input type="number" name="Location" placeholder={vendormanagement.Location} />
-          <label>TIN NO</label>
-          <input type="number" name="TINNO" placeholder={vendormanagement.TINNo} />
-          <label>TIN NO Expiry Date</label>
-          <input type="date" name="TIN NO Expiry Date" placeholder={vendormanagement.TINNOExpiryDate} />
-          <label>PurchaseOrderNo</label>
-          <input type="number" name="PurchaseOrderNo" placeholder={vendormanagement.PurchaseOrderNo} />
+          <input type="text" name="Type" placeholder={vendormanagement.Type} />
 
+          <label>Location</label>
+          <input type="text" name="Location" placeholder={vendormanagement.Location} />    
+          <label>TINNO</label>
+          <input type="number" name="TinNo" placeholder={vendormanagement.TinNo} />
+          <label>TINNO EXPIRY DATE</label>
+          <input type="number" name="TinNoExpiryDate" placeholder={vendormanagement.TinNoExpiryDate} />     
+           <label>PURCHASE ORDER NO</label>
+          <input type="number" name="PurchaseOrderNo" placeholder={vendormanagement.PurchaseOrderNo} />
+          
+          <label>VendorDetails</label>
+          <textarea
+            name="VendorDetails"
+            id="VendorDetails"
+            rows="10"
+            placeholder={vendormanagement.VendorDetails}
+          ></textarea>
           <button>Update</button>
         </form>
       </div>
