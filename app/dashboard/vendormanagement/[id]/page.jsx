@@ -25,7 +25,7 @@ const SinglevendormanagementPage = async ({ params }) => {
 
           <label>Location</label>
           <input type="text" name="Location" placeholder={vendormanagement.Location} />    
-          <label>TINNO</label>
+          <label>TIN NO</label>
           <input type="number" name="TinNo" placeholder={vendormanagement.TinNo} />
           <label>TINNO EXPIRY DATE</label>
           <input type="number" name="TinNoExpiryDate" placeholder={vendormanagement.TinNoExpiryDate} />     
