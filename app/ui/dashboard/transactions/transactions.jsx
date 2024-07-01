@@ -4,14 +4,14 @@ import styles from "./transactions.module.css";
 const Transactions = () => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Latest Transactions</h2>
+      <h2 className={styles.title}>Active Vendors</h2>
       <table className={styles.table}>
         <thead>
           <tr>
             <td>Name</td>
             <td>Status</td>
             <td>Date</td>
-            <td>Amount</td>
+            <td>Payment</td>
           </tr>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@ const Transactions = () => {
                   height={40}
                   className={styles.userImage}
                 />
-               sameera
+               Vendor 1
               </div>
             </td>
             <td>
@@ -34,7 +34,7 @@ const Transactions = () => {
               </span>
             </td>
             <td>14.02.2024</td>
-            <td>$3.200</td>
+            <td>$9873.200</td>
           </tr>
           <tr>
             <td>
@@ -46,14 +46,14 @@ const Transactions = () => {
                   height={40}
                   className={styles.userImage}
                 />
-                 sameera
+                  Vendor 2
               </div>
             </td>
             <td>
               <span className={`${styles.status} ${styles.done}`}>Done</span>
             </td>
             <td>14.02.2024</td>
-            <td>$3.200</td>
+            <td>$5673.200</td>
           </tr>
           <tr>
             <td>
@@ -65,7 +65,7 @@ const Transactions = () => {
                   height={40}
                   className={styles.userImage}
                 />
-                sameera
+                 Vendor 3
               </div>
             </td>
             <td>
@@ -74,7 +74,7 @@ const Transactions = () => {
               </span>
             </td>
             <td>14.02.2024</td>
-            <td>$3.200</td>
+            <td>$3976.200</td>
           </tr>
           <tr>
             <td>
@@ -86,7 +86,7 @@ const Transactions = () => {
                   height={40}
                   className={styles.userImage}
                 />
-                 sameera
+                  Vendor 4
               </div>
             </td>
             <td>
@@ -95,7 +95,7 @@ const Transactions = () => {
               </span>
             </td>
             <td>14.02.2024</td>
-            <td>$3.200</td>
+            <td>$3065.200</td>
           </tr>
         </tbody>
       </table>

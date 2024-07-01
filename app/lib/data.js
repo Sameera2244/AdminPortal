@@ -39,8 +39,8 @@ export const fetchvendors = async (q, page) => {
 
   try {
     connectToDB();
-    const count = await vendor.find({ Vendors: { $regex: regex } }).count();
-    const vendors = await vendor.find({Vendors: { $regex: regex } })
+    const count = await vendor.find({ vendorsName: { $regex: regex } }).count();
+    const vendors = await vendor.find({vendorsName: { $regex: regex } })
       .limit(ITEM_PER_PAGE)
       .skip(ITEM_PER_PAGE * (page - 1));
     return { count, vendors };
@@ -97,19 +97,19 @@ export const cards = [
   {
     id: 1,
     title: "Total Users",
-    number: 10.928,
+    number: 12,
     change: 12,
   },
   {
     id: 2,
-    title: "Orders",
-    number: 8.236,
-    change: -2,
+    title: "Vendors",
+    number: 8,
+    change: 0,
   },
-  {
-    id: 3,
-    title: "Revenue",
-    number: 6.642,
-    change: 18,
-  },
+  // {
+  //   id: 3,
+  //   title: "Revenue",
+  //   number: 6.642,
+  //   change: 18,
+  // },
 ];

@@ -41,12 +41,17 @@ const userSchema = new mongoose.Schema(
 
 const vendorSchema = new mongoose.Schema(
   {
-    Vendors: {
+    vendorsName: {
       type: String,
       required: true,
       unique: true,
     },
-    VendorDetails: {
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
       type: String,
       required: true,
     },
@@ -55,20 +60,7 @@ const vendorSchema = new mongoose.Schema(
       required: true,
       min: 0,
     },
-    Orders: {
-      type: Number,
-      required: true,
-      min: 0,
-    },
-    img: {
-      type: String,
-    },
-    color: {
-      type: String,
-    },
-    size: {
-      type: String,
-    },
+ 
   },
   { timestamps: true }
 );

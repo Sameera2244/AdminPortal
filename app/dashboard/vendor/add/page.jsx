@@ -5,24 +5,17 @@ const AddvendorPage = () => {
   return (
     <div className={styles.container}>
       <form action={addvendor} className={styles.form}>
-        <input type="text" placeholder="Vendors" name="Vendors" required />
-        <select name="category" id="category">
-          <option value="general">Choose a Category</option>
-          <option value="Email">Email</option>
-          <option value="phone">Phone</option>
-          <option value="computer">Computer</option>
-        </select>
-        <input type="number" placeholder="PurchaseOrders" name="PurchaseOrders" required />
-        <input type="number" placeholder="Orders" name="Orders" required />
-        <input type="text" placeholder="color" name="color" />
-        <input type="text" placeholder="size" name="size" />
-        <textarea
+        <input type="text" placeholder="vendorsName" name="vendorsName" required />
+        <input type="email" placeholder="email" name="email" required />
+        <input
+          type="password"
+          placeholder="password"
+          name="password"
           required
-          name="VendorDetails"
-          id="VendorDetails"
-          rows="16"
-          placeholder="VendorDetails"
-        ></textarea>
+        />
+        <input type="number" placeholder="PurchaseOrders" name="PurchaseOrders" required />
+        
+    
         <button type="submit">Submit</button>
       </form>
     </div>

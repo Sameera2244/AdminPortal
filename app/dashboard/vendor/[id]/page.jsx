@@ -13,41 +13,19 @@ const SinglevendorPage = async ({ params }) => {
         <div className={styles.imgContainer}>
           <Image src="/noavatar.png" alt="" fill />
         </div>
-        {vendor.vendors}
+        {vendor.vendorsName}
       </div>
       <div className={styles.formContainer}>
         <form action={updatevendor} className={styles.form}>
           <input type="hidden" name="id" value={vendor.id} />
-          <label>Vendors</label>
-          <input type="text" name="Vendors" placeholder={vendor.vendors} />
+          <label>VendorsName</label>
+          <input type="text" name="vendorsName" placeholder={vendor.vendorsName} />
+          <label>Email</label>
+          <input type="email" name="email" placeholder={user.email} />
           <label>PurchaseOrders</label>
           <input type="number" name="PurchaseOrders" placeholder={vendor.PurchaseOrders} />
-          <label>Orders</label>
-          <input type="number" name="stock" placeholder={vendor.Orders} />
-          <label>Color</label>
-          <input
-            type="text"
-            name="color"
-            placeholder={vendor.color || "color"}
-          />
-          <label>Size</label>
-          <textarea
-            type="text"
-            name="size"
-            placeholder={vendor.size || "size"}
-          />
-          <label>Category</label>
-          <select name="Category" id="Category">
-            <option value="Email">Email</option>
-            <option value="Phone">Phone</option>
-          </select>
-          <label>VendorDetails</label>
-          <textarea
-            name="VendorDetails"
-            id="VendorDetails"
-            rows="10"
-            placeholder={vendor.VendorDetails}
-          ></textarea>
+         
+          
           <button>Update</button>
         </form>
       </div>

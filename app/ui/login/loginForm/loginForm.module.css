@@ -13,7 +13,7 @@
   
   .form input {
     width: 100%;
-    padding: 30px;
+    padding: 20px;
     border: 2px solid #2e374a;
     border-radius: 5px;
     background-color: var(--bg);
@@ -22,7 +22,7 @@
   
   .form button {
     width: 100%;
-    padding: 30px;
+    padding: 20px;
     background-color: teal;
     color: var(--text);
     border: none;

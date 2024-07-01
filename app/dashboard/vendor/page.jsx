@@ -22,11 +22,10 @@ const vendorsPage = async ({ searchParams }) => {
       <table className={styles.table}>
         <thead>
           <tr>
-            <td>Vendors</td>
-            <td>VendorDetails</td>
+            <td>VendorsName</td>
+            <td>Email</td>
             <td>PurchaseOrders</td>
             <td>Created At</td>
-            <td>Orders</td>
             <td>Action</td>
           </tr>
         </thead>
@@ -42,13 +41,13 @@ const vendorsPage = async ({ searchParams }) => {
                     height={40}
                     className={styles.vendorImage}
                   />
-                  {vendor.Vendors}
+                  {vendor.vendorsName}
                 </div>
               </td>
-              <td>{vendor.VendorDetails}</td>
+              <td>{vendor.email}</td>
               <td>{vendor.PurchaseOrders}</td>
               <td>{vendor.createdAt?.toString().slice(4, 16)}</td>
-              <td>{vendor.Orders}</td>
+             
               <td>
                 <div className={styles.buttons}>
                   <Link href={`/dashboard/vendor/${vendor.id}`}>

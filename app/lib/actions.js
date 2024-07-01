@@ -70,19 +70,17 @@ export const updateUser = async (formData) => {
 };
 
 export const addvendor = async (formData) => {
-  const {  Vendors,VendorDetails, PurchaseOrders, Orders, color, size } =
+  const {  vendorsName,email,password, PurchaseOrders } =
     Object.fromEntries(formData);
-
+ 
   try {
     connectToDB();
 
     const newvendor = new vendor({
-      Vendors,
-      VendorDetails,
-      PurchaseOrders,
-      Orders,
-      color,
-      size,
+      vendorsName,
+      email,
+      password,
+      PurchaseOrders
     });
 
     await newvendor.save();
@@ -96,19 +94,17 @@ export const addvendor = async (formData) => {
 };
 
 export const updatevendor = async (formData) => {
-  const { id,Vendors,VendorDetails, Purchaseorders, Orders, color, size } =
+  const { id,vendorsName,email,password, PurchaseOrders } =
     Object.fromEntries(formData);
 
   try {
     connectToDB();
 
     const updateFields = {
-      Vendors,
-      VendorDetails,
-      Purchaseorders,
-      Orders,
-      color,
-      size,
+      vendorsName,
+      email,
+      password,
+      PurchaseOrders
     };
 
     Object.keys(updateFields).forEach(
