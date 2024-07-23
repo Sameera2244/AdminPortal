@@ -39,8 +39,8 @@ export const fetchvendors = async (q, page) => {
 
   try {
     connectToDB();
-    const count = await vendor.find({ vendorsName: { $regex: regex } }).count();
-    const vendors = await vendor.find({vendorsName: { $regex: regex } })
+    const count = await vendor.find({ VendorsName: { $regex: regex } }).count();
+    const vendors = await vendor.find({VendorsName: { $regex: regex } })
       .limit(ITEM_PER_PAGE)
       .skip(ITEM_PER_PAGE * (page - 1));
     return { count, vendors };
@@ -87,7 +87,7 @@ export const fetchvendormanagement = async (id) => {
     return vendormanagement;
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to fetch vendormanagement!");
+    throw new Error("Failed to fetch Vendor Management!");
   }
 };
 

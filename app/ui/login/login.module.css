@@ -1,8 +1,24 @@
 .container {
+  margin: 0;
+  padding: 0px;
   width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end; 
+background-image:  url("/elec.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+
+
+
 }
+/* .bigbox{
+
+
+
+  background: url('/elec.jpg') no-repeat center center fixed;
+
+
+} */
 

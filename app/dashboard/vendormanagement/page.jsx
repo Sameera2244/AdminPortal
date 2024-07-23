@@ -25,8 +25,6 @@ const vendormanagementsPage = async ({ searchParams }) => {
             <td>CompanyName</td>
             <td>Type</td>
             <td>Location</td>
-            <td>Tin No</td>
-            <td>Tin No Expiry Date</td>
             <td>Purchase Order No </td>
             <td>Vendor Details</td>
             <td>Action</td>
@@ -49,8 +47,6 @@ const vendormanagementsPage = async ({ searchParams }) => {
               </td>
               <td>{vendormanagement.Type}</td>
               <td>{vendormanagement.Location}</td>
-              <td>{vendormanagement.TinNo}</td>
-              <td>{vendormanagement.TinNoExpiryDate}</td>
               <td>{vendormanagement.PurchaseOrderNo}</td>
               <td>{vendormanagement.VendorDetails}</td>
               <td>
@@ -62,9 +58,9 @@ const vendormanagementsPage = async ({ searchParams }) => {
                   </Link>
                   <form action={deletevendormanagement}>
                     <input type="hidden" name="id" value={vendormanagement.id} />
-                    <button className={`${styles.button} ${styles.delete}`}>
+                    {/* <button className={`${styles.button} ${styles.delete}`}>
                       Delete
-                    </button>
+                    </button> */}
                   </form>
                 </div>
               </td>

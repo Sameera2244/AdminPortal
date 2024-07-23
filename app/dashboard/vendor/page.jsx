@@ -22,11 +22,13 @@ const vendorsPage = async ({ searchParams }) => {
       <table className={styles.table}>
         <thead>
           <tr>
-            <td>VendorsName</td>
-            <td>Email</td>
-            <td>PurchaseOrders</td>
-            <td>Created At</td>
-            <td>Action</td>
+            <td>Vendors Name</td>
+            <td>Purchase Order Number</td>
+            <td>Number Of MRU Assigned</td>
+            <td>Vendor User</td>
+            <td>Status</td>
+            <td>Vendor Assigned</td>
+           
           </tr>
         </thead>
         <tbody>
@@ -41,13 +43,15 @@ const vendorsPage = async ({ searchParams }) => {
                     height={40}
                     className={styles.vendorImage}
                   />
-                  {vendor.vendorsName}
+                  {vendor.VendorsName}
                 </div>
               </td>
-              <td>{vendor.email}</td>
-              <td>{vendor.PurchaseOrders}</td>
-              <td>{vendor.createdAt?.toString().slice(4, 16)}</td>
-             
+              <td>{vendor.PurchaseOrderNumber}</td>
+              <td>{vendor.NumberOfMRUAssigned}</td>
+              <td>{vendor.VendorUser}</td>
+              <td>{vendor.Status}</td>
+              <td>{vendor.VendorAssigned}</td>
+              
               <td>
                 <div className={styles.buttons}>
                   <Link href={`/dashboard/vendor/${vendor.id}`}>
@@ -57,9 +61,9 @@ const vendorsPage = async ({ searchParams }) => {
                   </Link>
                   <form action={deletevendor}>
                     <input type="hidden" name="id" value={vendor.id} />
-                    <button className={`${styles.button} ${styles.delete}`}>
+                    {/* <button className={`${styles.button} ${styles.delete}`}>
                       Delete
-                    </button>
+                    </button> */}
                   </form>
                 </div>
               </td>

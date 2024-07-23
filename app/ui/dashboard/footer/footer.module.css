@@ -1,8 +1,11 @@
 .container {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: space-between;
+  text-align: center;
   margin-top: 30px;
+  padding: 1rem;
   color: var(--textSoft);
 }
 
@@ -13,3 +16,4 @@
 .text {
   font-size: 12px;
 }
+

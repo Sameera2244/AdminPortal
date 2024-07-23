@@ -7,9 +7,9 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
       min: 3,
-      max: 20,
+      max: 10,
     },
-    email: {
+    first: {
       type: String,
       required: true,
       unique: true,
@@ -41,26 +41,35 @@ const userSchema = new mongoose.Schema(
 
 const vendorSchema = new mongoose.Schema(
   {
-    vendorsName: {
+    VendorsName: {
+      type: String,
+      required: true,                       
+      unique: true,
+    },
+    PurchaseOrderNumber: {
       type: String,
       required: true,
       unique: true,
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    PurchaseOrders: {
+    NumberOfMRUAssigned: {
       type: Number,
+      required: true,
+    },
+    VendorUser: {
+      type: String,
       required: true,
       min: 0,
     },
- 
+     VendorAssigned:{
+      type: String,
+      required: true,
+      min:0,
+     },
+    Status:{
+      type:Boolean,
+      required:true,
+      min:0,
+    }
   },
   { timestamps: true }
 );
@@ -80,16 +89,7 @@ const vendormanagementSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    TinNo: {
-      type: Number,
-      required: true,
-      min: 0,
-    },
-    TinNoExpiryDate: {
-      type: Number,
-      required: true,
-      min: 0,
-    },
+   
     PurchaseOrderNo: {
       type: Number,
       required: true,

@@ -8,16 +8,10 @@ const AddvendormanagementPage = () => {
         <input type="text" placeholder="CompanyName" name="CompanyName" required />
         <input type="text" placeholder="Type" name="Type" required />
         <input type="text" placeholder="Location" name="Location" required />
-        <input type="number" placeholder="TinNo" name="TinNo" required />
-        <input type="number" placeholder="TinNoExpiryDate" name="TinNoExpiryDate" required />
         <input type="number" placeholder="PurchaseOrderNo" name="PurchaseOrderNo" required />
-        <textarea
-          required
-          name="VendorDetails"
-          id="VendorDetails"
-          rows="16"
-          placeholder="VendorDetails"
-        ></textarea>
+        <input type="text" placeholder="VendorDetails" name="VendorDetails"  id="VendorDetails"
+          rows="16"required />
+    
         <button type="submit">Submit</button>
       </form>
     </div>

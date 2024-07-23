@@ -4,14 +4,15 @@
 
 .menu {
   flex: 1;
-  background-color: var(--bgSoft);
+  background-color: rgba(253, 254, 254, 0.833);
   padding: 20px;
   min-height: 100vh;
+  color: black;
 }
 
 .content {
   flex: 4;
-  padding: 20px;
+  padding: 10px;
 }
 
 .wrapper {

@@ -70,17 +70,20 @@ export const updateUser = async (formData) => {
 };
 
 export const addvendor = async (formData) => {
-  const {  vendorsName,email,password, PurchaseOrders } =
+  const {  VendorsName, PurchaseOrderNumber, NumberOfMRUAssigned,VendorUser,VendorAssigned,Status  } =
     Object.fromEntries(formData);
  
   try {
     connectToDB();
 
     const newvendor = new vendor({
-      vendorsName,
-      email,
-      password,
-      PurchaseOrders
+      VendorsName,
+      PurchaseOrderNumber,
+      NumberOfMRUAssigned,
+      VendorUser,
+      VendorAssigned,
+      Status
+
     });
 
     await newvendor.save();
@@ -94,17 +97,20 @@ export const addvendor = async (formData) => {
 };
 
 export const updatevendor = async (formData) => {
-  const { id,vendorsName,email,password, PurchaseOrders } =
+  const { id, VendorsName, PurchaseOrderNumber, NumberOfMRUAssigned,VendorUser,VendorAssigned,Status  } =
     Object.fromEntries(formData);
 
   try {
     connectToDB();
-
+    
     const updateFields = {
-      vendorsName,
-      email,
-      password,
-      PurchaseOrders
+      VendorsName,
+      PurchaseOrderNumber,
+      NumberOfMRUAssigned,
+      VendorUser,
+      VendorAssigned,
+      Status
+     
     };
 
     Object.keys(updateFields).forEach(
@@ -124,7 +130,7 @@ export const updatevendor = async (formData) => {
 
 
 export const addvendormanagement = async (formData) => {
-  const { CompanyName,Type,Location,TinNo,TinNoExpiryDate,PurchaseOrderNo,VendorDetails} =
+  const { CompanyName,Type,Location,PurchaseOrderNo,VendorDetails} =
     Object.fromEntries(formData);
 
   try {
@@ -134,8 +140,6 @@ export const addvendormanagement = async (formData) => {
       CompanyName,
       Type,
       Location,
-      TinNo,
-      TinNoExpiryDate,
       PurchaseOrderNo,
       VendorDetails,
     });
@@ -151,7 +155,7 @@ export const addvendormanagement = async (formData) => {
 };
 
 export const updatevendormanagement = async (formData) => {
-  const { id,CompanyName,Type,Location,TinNo,TinNoExpiryDate,PurchaseOrderNo,VendorDetails } =
+  const { id,CompanyName,Type,Location,PurchaseOrderNo,VendorDetails } =
     Object.fromEntries(formData);
 
   try {
@@ -161,8 +165,6 @@ export const updatevendormanagement = async (formData) => {
       CompanyName,
       Type,
       Location,
-      TinNo,
-      TinNoExpiryDate,
       PurchaseOrderNo,
       VendorDetails,
     };

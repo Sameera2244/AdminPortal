@@ -21,13 +21,19 @@ const UsersPage = async ({ searchParams }) => {
       </div>
       <table className={styles.table}>
         <thead>
-          <tr>
-            <td>Name</td>
-            <td>Email</td>
-            <td>Created At</td>
-            <td>Role</td>
-            <td>Status</td>
-            <td>Action</td>
+        <tr>
+            <td>User Name</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Contact Number</td>
+            <td>Email ID</td>
+            <td>Emergency Contact</td>
+            <td>Vendor Number</td>
+            <td>Employee Number</td>
+            <td>MRA User</td>
+            <td>Vendor Employee</td>
+            <td>Number of MR Assigned</td>
+            <td>Number of MR Read </td>
           </tr>
         </thead>
         <tbody>
@@ -45,10 +51,20 @@ const UsersPage = async ({ searchParams }) => {
                   {user.username}
                 </div>
               </td>
-              <td>{user.email}</td>
+              <td>{user.FirstName}</td>
+              <td>{user.LastName}</td>
+              <td>{user.ContactNumber}</td>
+              <td>{user.EmailId}</td>
+              <td>{user.EmergencyContact}</td>
+              <td>{user.VendorNumber}</td>
+              <td>{user.EmployeeNumber}</td>
+              <td>{user.MRAUser}</td>
+              <td>{user.VendorEmployee}</td>
+              <td>{user.NumberofMRAssigned}</td>
+              <td>{user.NumberofMRRead}</td>
+
               <td>{user.createdAt?.toString().slice(4, 16)}</td>
-              <td>{user.isAdmin ? "Admin" : "Client"}</td>
-              <td>{user.isActive ? "active" : "passive"}</td>
+              
               <td>
                 <div className={styles.buttons}>
                   <Link href={`/dashboard/users/${user.id}`}>
@@ -58,9 +74,9 @@ const UsersPage = async ({ searchParams }) => {
                   </Link>
                   <form action={deleteUser}>
                     <input type="hidden" name="id" value={(user.id)} />
-                    <button className={`${styles.button} ${styles.delete}`}>
+                    {/* <button className={`${styles.button} ${styles.delete}`}>
                       Delete
-                    </button>
+                    </button> */}
                   </form>
                 </div>
               </td>
