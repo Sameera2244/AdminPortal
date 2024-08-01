@@ -1,8 +1,8 @@
 .container {
   padding: 20px;
   border-radius: 10px;
-  background-color: rgba(253, 254, 254, 0.833);
-  color:black;
+  background-color:#574476;
+  color:white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,7 +12,7 @@
   color: var(--textSoft);
   font-weight: bold;
   text-transform: capitalize;
-  color:black;
+  color:white;
 }
 
 .menu {

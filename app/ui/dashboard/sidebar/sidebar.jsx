@@ -28,14 +28,18 @@ const menuItems = [
       //   path: "/dashboard/users",
       //   icon: <MdSupervisedUserCircle />,
       // },
-      {
-        title: "Vendor",
-        path: "/dashboard/vendor",
-        icon: <MdShoppingBag />,
-      },
+      // {
+      //   title: "Vendor",
+      //   path: "/dashboard/vendor",
+      //   icon: <MdShoppingBag />,      },
       {
         title: "Vendor Management",
         path: "/dashboard/vendormanagement",
+        icon: <MdShoppingBag />,
+      },
+      {
+        title: "PO Inprogress",
+        path: "/dashboard/poinprogress",
         icon: <MdShoppingBag />,
       },
    
