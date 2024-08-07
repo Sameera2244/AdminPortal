@@ -161,5 +161,32 @@
     margin-left: auto; /* Push the button to the right */
   }
   
+  .searchContainer {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+  }
   
+  .searchInput {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    color:black;
+    border-radius: 4px;
+    width: 200px;
+  }
+  
+  .searchButton {
+    padding: 8px 15px;
+    border: none;
+    background-color: #3498db; /* Blue color */
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .searchButton:hover {
+    background-color: #2980b9; /* Darker blue color */
+  }
   

@@ -66,7 +66,6 @@ const Page = () => {
     },
   ]);
     
-
   const [editIndex, setEditIndex] = useState(null);
   const [editData, setEditData] = useState({});
   const [newOrder, setNewOrder] = useState({
@@ -80,6 +79,7 @@ const Page = () => {
     createdAt: '',
   });
   const [showNewOrderForm, setShowNewOrderForm] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleEditClick = (index) => {
     setEditIndex(index);
@@ -173,15 +173,28 @@ const Page = () => {
     document.body.removeChild(link);
   };
 
+  const filteredOrders = orders.filter(order =>
+    order.vendorNumber.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <h1></h1>
         <div className={styles.exportSearch}>
           <button className={styles.exportButton} onClick={exportCSV}>Export CSV</button>
-          <input type="text" className={styles.searchInput} placeholder="Search Routes" />
-         
         </div>
+      </div>
+
+      <div className={styles.searchContainer}>
+        <input
+          type="text"
+          placeholder="Search by PO No"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className={styles.searchInput}
+        />
+        <button className={styles.searchButton} onClick={() => setSearchQuery(searchQuery)}>Search</button>
       </div>
 
       <div className={styles.stats}>
@@ -245,7 +258,7 @@ const Page = () => {
           </tr>
         </thead>
         <tbody>
-          {orders.map((order, index) => (
+          {filteredOrders.map((order, index) => (
             <tr key={index}>
               {editIndex === index ? (
                 <>
@@ -255,11 +268,9 @@ const Page = () => {
                   <td><input type="text" name="phoneNo" value={editData.phoneNo} onChange={handleChange} /></td>
                   <td>
                     <select name="type" value={editData.type} onChange={handleChange}>
-                      <option>Select Status</option>
-                      <option>Sent to Vendor</option>
-                      <option>In Progress</option>
-                      <option>Completed</option>
-                      <option>Cancelled</option>
+                      <option value="Normal">Normal</option>
+                      <option value="Defected">Defected</option>
+                      <option value="New">New</option>
                     </select>
                   </td>
                   <td><input type="text" name="dueTime" value={editData.dueTime} onChange={handleChange} /></td>
@@ -292,3 +303,4 @@ const Page = () => {
 };
 
 export default Page;
+

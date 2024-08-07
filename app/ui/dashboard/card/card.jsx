@@ -1,339 +1,209 @@
 'use client'
-import React, { useState, useRef, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
+import styles from './card.module.css';
+import { Bar } from 'react-chartjs-2';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import 'chart.js/auto';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+const Card = () => {
+  const [date, setDate] = useState(new Date());
+  const [vendorEfficiency, setVendorEfficiency] = useState({
+    labels: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
+    data: [2, 3, 4, 5, 6, 3, 2]
+  });
 
-const CardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px; 
-  justify-content: space-around;
-  margin: 20px;
-`;
+  // Dummy function to simulate updating vendor efficiency
+  const updateVendorEfficiency = () => {
+    setVendorEfficiency({
+      labels: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
+      data: [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)]
+    });
+  };
 
-const Card = styled.div`
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  flex: 1;
-  min-width: 300px;
+  // Use effect to simulate data updates
+  useEffect(() => {
+    const interval = setInterval(updateVendorEfficiency, 10000); // Update every 10 seconds
+    return () => clearInterval(interval);
+  }, []);
 
-  &.large {
-    width: 600px; /* Adjust the width as needed */
-  }
-`;
-
-const CardHeader = styled.h3`
-  margin-bottom: 20px;
-  font-size: 1.5em;
-  color: #333;
-  text-align: center;
-`;
-
-const CalendarContainer = styled.div`
-  .react-calendar {
-    background-color: #fcf6f6;
-    color: #050505;
-    width: 100%;
-    border: none;
-    font-family: 'Arial, Helvetica, sans-serif';
-  }
-
-  .react-calendar__tile--now {
-    background: #f0f0f0;
-  }
-
-  .react-calendar__tile--active {
-    background: #4A148C;
-    color: white;
-  }
-`;
-
-const DetailsCard = styled.div`
-  background-color: #fff;
-  color: #333;
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const DataCard = styled.div`
-  background-color: #fff;
-  color: #333;
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const DataTable = styled.table`
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-`;
-
-const DataTableRow = styled.tr`
-  border-bottom: 1px solid #ddd;
-`;
-
-const DataTableCell = styled.td`
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
-`;
-
-const TableContainer = styled.div`
-  background-color: #333;
-  color: #fff;
-  margin-top: 20px;
-`;
-
-const Table = styled.table`
-  background-color: #fff;
-  color: #333;
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-`;
-
-const TableHeader = styled.th`
-  background-color: #fff;
-  color: #333;
-  padding: 10px;
-  border: 1px solid #ddd;
-`;
-
-const TableCell = styled.td`
-  background-color: #fff;
-  color: #333;
-  padding: 10px;
-  border: 1px solid #ddd;
-`;
-
-const ChartContainer = styled.div`
-  position: relative;
-  height: 400px;
-  animation: fadeIn 2s ease-in-out;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-`;
-
-const EfficiencyMetric = styled.div`
-  background: #4a148c;
-  color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
-  margin-top: 20px;
-
-  h4 {
-    margin: 0;
-    font-size: 1.2em;
-  }
-`;
-
-const AnalyticsCard = ({ children }) => {
-  return <Card>{children}</Card>;
-};
-
-const AnalyticsChart = () => {
-  const chartRef = useRef(null);
-
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  const barData = {
+    labels: vendorEfficiency.labels,
     datasets: [
       {
-        label: 'Tasks Completed',
-        data: [65, 59, 80, 81, 56, 55, 40],
-        backgroundColor: 'rgba(98, 90, 205, 0.2)',  // Use lighter color for background
-        borderColor: 'rgba(98, 90, 205, 1)',      // Use darker color for border
-        borderWidth: 2,
-        barThickness: 30,  // Adjust the thickness of bars
-        borderRadius: 5,   // Rounded corners
+        label: 'Download',
+        data: vendorEfficiency.data,
+        backgroundColor: 'rgba(75,192,192,0.2)',
+        borderColor: 'rgba(75,192,192,1)',
+        borderWidth: 1,
       },
     ],
   };
 
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        display: true,
-        position: 'top',
-        labels: {
-          color: '#333', // Change legend color
-          font: {
-            size: 14,
-          },
-        },
-      },
-      tooltip: {
-        backgroundColor: '#fff',
-        titleColor: '#333',
-        bodyColor: '#666',
-        borderColor: '#ddd',
+  const stackedBarData = {
+    labels: vendorEfficiency.labels,
+    datasets: [
+      {
+        label: 'Series 1',
+        data: vendorEfficiency.data,
+        backgroundColor: 'rgba(75,192,192,0.2)',
+        borderColor: 'rgba(75,192,192,1)',
         borderWidth: 1,
       },
-    },
-    scales: {
-      x: {
-        grid: {
-          display: false,
-        },
-        ticks: {
-          color: '#333', // Change x-axis label color
-        },
+      {
+        label: 'Series 2',
+        data: vendorEfficiency.data.map(d => d / 2),
+        backgroundColor: 'rgba(153,102,255,0.2)',
+        borderColor: 'rgba(153,102,255,1)',
+        borderWidth: 1,
       },
-      y: {
-        beginAtZero: true,
-        grid: {
-          color: '#ddd', // Change y-axis grid line color
-        },
-        ticks: {
-          color: '#333', // Change y-axis label color
-        },
-      },
-    },
-  };
-
-  useEffect(() => {
-    const chart = chartRef.current.chartInstance;
-
-    return () => {
-      if (chart) {
-        chart.destroy();
-      }
-    };
-  }, []);
-
-  return <Bar ref={chartRef} data={data} options={options} />;
-};
-
-const TaskTable = () => {
-  return (
-    <TableContainer>
-      <Table>
-        <thead>
-          <tr>
-            <TableHeader>Name of Vendor</TableHeader>
-            <TableHeader>Task</TableHeader>
-            <TableHeader>Status</TableHeader>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <TableCell>John Doe</TableCell>
-            <TableCell>Complete project</TableCell>
-            <TableCell>In Progress</TableCell>
-          </tr>
-          <tr>
-            <TableCell>Jane Smith</TableCell>
-            <TableCell>Review code</TableCell>
-            <TableCell>Completed</TableCell>
-          </tr>
-          <tr>
-            <TableCell>Emily Johnson</TableCell>
-            <TableCell>Update documentation</TableCell>
-            <TableCell>Pending</TableCell>
-          </tr>
-        </tbody>
-      </Table>
-    </TableContainer>
-  );
-};
-
-const CardComponent = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
+    ],
   };
 
   return (
-    <CardContainer>
-      <Card>
-        <CardHeader>Calendar</CardHeader>
-        <CalendarContainer>
-          <Calendar onChange={handleDateChange} value={selectedDate} />
-        </CalendarContainer>
-        <DetailsCard>
-          <h4>Tasks for {selectedDate.toDateString()}</h4>
-          <p>Task: Complete project</p>
-          <p>Person: John Doe</p>
-        </DetailsCard>
-      </Card>
-      <Card>
-        <CardHeader>Data</CardHeader>
-        <TaskTable />
-      </Card>
-      <Card className="large">
-        <CardHeader>Vendor Information</CardHeader>
-        <DataCard>
-          <DataTable>
+    <div className={styles.dashboard}>
+      <div className={styles.summary}>
+        <div className={`${styles.card} ${styles.blueCard}`}>
+          <h2>88.9%</h2>
+          <p>SERVER UP TIME</p>
+        </div>
+        <div className={`${styles.card} ${styles.purpleCard}`}>
+          <h2>30,982</h2>
+          <p>TOTAL USERS</p>
+        </div>
+        <div className={`${styles.card} ${styles.lightPurpleCard}`}>
+          <h2>65%</h2>
+          <p>DOWNLOAD</p>
+        </div>
+        <div className={`${styles.card} ${styles.greenCard}`}>
+          <h2>+62,870</h2>
+          <p>UPLOAD</p>
+        </div>
+      </div>
+
+      <div className={styles.mainContent}>
+      <div className={`${styles.card} ${styles.chartCard}`}>
+  <h3>Vendor Management</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Vendor Name</th>
+        <th>Vendor ID</th>
+        <th>Task</th>
+        <th>Status</th>
+        <th>Order No</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Vendor A</td>
+        <td>V001</td>
+        <td>Delivery</td>
+        <td>Completed</td>
+        <td>ORD1234</td>
+      </tr>
+      <tr>
+        <td>Vendor B</td>
+        <td>V002</td>
+        <td>Installation</td>
+        <td>Pending</td>
+        <td>ORD1235</td>
+      </tr>
+      <tr>
+        <td>Vendor C</td>
+        <td>V003</td>
+        <td>Maintenance</td>
+        <td>In Progress</td>
+        <td>ORD1236</td>
+      </tr>
+      <tr>
+        <td>Vendor D</td>
+        <td>V004</td>
+        <td>Consultation</td>
+        <td>Completed</td>
+        <td>ORD1237</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+        <div className={`${styles.card} ${styles.chartCard}`}>
+          <h3>GRAPH 03</h3>
+          <Bar data={barData} options={{
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(tooltipItem) {
+                    return `${tooltipItem.dataset.label}: ${tooltipItem.raw}`;
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                stacked: true,
+              },
+              y: {
+                stacked: true,
+              }
+            }
+          }} />
+        </div>
+
+        <div className={`${styles.card} ${styles.chartCard}`}>
+          <h3>GRAPH 04</h3>
+          <Bar data={stackedBarData} options={{
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'top',
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(tooltipItem) {
+                    return `${tooltipItem.dataset.label}: ${tooltipItem.raw}`;
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                stacked: true,
+              },
+              y: {
+                stacked: true,
+              }
+            }
+          }} />
+        </div>
+
+        <div className={`${styles.card} ${styles.vendorEfficiencyCard}`}>
+          <h4>Vendor Efficiency</h4>
+          <table>
             <thead>
-              <DataTableRow>
-                <DataTableCell><strong>Order Number</strong></DataTableCell>
-                <DataTableCell><strong>Vendor Name</strong></DataTableCell>
-                <DataTableCell><strong>Vendor Id</strong></DataTableCell>
-                <DataTableCell><strong>Status</strong></DataTableCell>
-              </DataTableRow>
+              <tr>
+                <th>Day</th>
+                <th>Efficiency</th>
+              </tr>
             </thead>
             <tbody>
-              <DataTableRow>
-                <DataTableCell>12345</DataTableCell>
-                <DataTableCell>Acme Corp</DataTableCell>
-                <DataTableCell>67890</DataTableCell>
-                <DataTableCell>Active</DataTableCell>
-              </DataTableRow>
-              <DataTableRow>
-                <DataTableCell>67891</DataTableCell>
-                <DataTableCell>Globex Inc</DataTableCell>
-                <DataTableCell>67892</DataTableCell>
-                <DataTableCell>Pending</DataTableCell>
-              </DataTableRow>
-              <DataTableRow>
-                <DataTableCell>67893</DataTableCell>
-                <DataTableCell>Initech</DataTableCell>
-                <DataTableCell>67894</DataTableCell>
-                <DataTableCell>Inactive</DataTableCell>
-              </DataTableRow>
+              {vendorEfficiency.labels.map((label, index) => (
+                <tr key={index}>
+                  <td>{label}</td>
+                  <td>{vendorEfficiency.data[index]}</td>
+                </tr>
+              ))}
             </tbody>
-          </DataTable>
-        </DataCard>
-      </Card>
-      <Card>
-        <CardHeader>Analytics</CardHeader>
-        <ChartContainer>
-          <AnalyticsChart />
-          <EfficiencyMetric>
-            <h4>Vendor Efficiency</h4>
-            <p>Overall Efficiency: 85%</p>
-          </EfficiencyMetric>
-        </ChartContainer>
-      </Card>
-    </CardContainer>
+          </table>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default CardComponent;
+export default Card;

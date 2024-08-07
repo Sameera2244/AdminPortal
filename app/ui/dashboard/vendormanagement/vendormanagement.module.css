@@ -1,62 +1,448 @@
-.container{
-  background-color: #e2dfef;  
-    color:black;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-  }
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* styles for export button */
+.exportSearch {
+  display: flex;
+ 
+}
+.exportButton {
+  background-color:#1DC9B7;
+  border-radius: 5px;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
+  justify-content: flex-start;
+}
+.searchInput {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.stat {
+  background-color:  #bdb1ef;
+  color: rgb(3, 3, 3);
+ font-weight: bold;
+  padding: 20px;
+  text-align: center;
+  flex: 1;
+  margin: 0 10px;
+  border-radius: 5px ;
+  border:2px solid  #bdb1ef;
+}
+.tabs {
+  display: flex;
+  justify-content: space-between; /* This will space out the items in the container */
+  align-items: center; /* Center vertically if needed */
+  margin-bottom: 20px; /* Space below the tabs */
+}
+
+
+.tabs button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  /* background-color: #ffc107; */
+  color: rgb(21, 21, 21);
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.historyy{
+  background-color:#FD3995;
+}
+.activeBut{
+  background-color:#39A1F4;
+}
+.activeTab {
+  background-color:#F5A623;
+}
+
+.uploadButton {
+  background-color: #1976e1;
+  margin-left: auto;
+  color:white !important;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white; /* Set the default text color to black */
+}
+
+.table th,
+.table td {
+  border: 1px dotted #8f8989;
+  padding: 10px;
   
-  .top{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .addButton{
-    padding: 10px;
-    background-color: #5d57c9;
-    color: var(--text);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .table{
-    width: 100%;
-  }
-  
-  .table td{
-    padding: 10px;
-  }
-  
-  .vendormanagement{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .vendormanagementImage{
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .buttons{
-    display: flex;
-    gap: 10px;
-  }
-  
-  .button{
-    padding: 5px 10px;
-    border-radius: 5px;
-    color: var(--text);
-    border: none;
-    cursor: pointer;
-  }
-  
-  .view{
-    background-color: teal;
-  }
-  
-  .delete{
-    background-color: crimson;
-  }
+}
+
+.table th {
+  background-color: #bdb1ef;
+  text-align: left;
+  border-radius: 2px;
+  color: rgb(30, 27, 27); /* Ensure the header text is black */
+}
+
+.table td {
+  color: black; /* Ensure the cell text is black */
+ background-color: #e2dfef;  
+}
+
+.table td select {
+  width: 100%;
+  padding: 5px;
+}
+
+.table td button {
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popupContent {
+  background:#574476;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px;
+}
+
+.popupContent input,
+.popupContent select {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  color:black;
+}
+
+.popupContent button {
+  margin: 5px;
+}
+
+.addButton {
+  background-color: #39A1F4; /* Your desired background color */
+  color: white; /* Button text color */
+  border: none; /* Remove default border */
+  padding: 10px 20px; /* Padding for button size */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  font-size: 16px; /* Adjust font size if needed */
+  margin-left: auto; /* Push the button to the right */
+}
+.datePickerContainer {
+  display: flex;
+  align-items: flex-end;
+  color:black;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.datePickerContainer label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.datePickerContainer input[type="text"] {
+  width: 150px;
+  padding: 5px;
+  color:black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.datePickerContainer button {
+  background-color: #39A1F4; /* Your desired background color */
+  color: white; 
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.datePickerContainer button:hover {
+  background-color: #39A1F4;
+  color: white; 
+}
+.datePickerContainer {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.datePickerContainer label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.datePickerContainer input[type="text"] {
+  width: 150px;
+  padding: 5px;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.datePickerContainer button {
+  background-color: #00a7e1;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.datePickerContainer button:hover {
+  background-color: #007bb3;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupContent {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.popupContent h2 {
+  margin-top: 0;
+}
+
+.popupContent input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.popupContent button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popupContent button:first-of-type {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.popupContent button:last-of-type {
+  background-color: #f44336;
+  color: white;
+}
+
+.popupContent button:hover {
+  opacity: 0.8;
+}
+
+/* Search container to align the search input and button */
+.searchContainer {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between the search input and button */
+}
+
+/* Style for the search input field */
+.searchContainer input[type="text"] {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid ; 
+  color:black;/* Light grey border */
+  border-radius: 4px; /* Rounded corners */
+  width: 300px; /* Width of the search input */
+}
+
+/* Style for the search button */
+.searchContainer button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #007bff; /* Bootstrap primary blue */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Style for the search button on hover */
+.searchContainer button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.searchContainer button:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); /* Add a blue shadow */
+}
+
+/* styles.module.css */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f4f4f4;
+}
+
+.delete-button {
+  background-color: #e74c3c; /* Red color */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #c0392b; /* Darker red color */
+}
+
+.edit-button {
+  background-color: #3498db; /* Blue color */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #2980b9; /* Darker blue color */
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popupContent {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 300px;
+}
+
+.popupContent h2 {
+  margin-bottom: 20px;
+  color:black;
+}
+
+.popupContent p {
+  margin-bottom: 20px;
+  color:black;
+}
+
+.popupContent button {
+  background-color: #3498db; /* Blue color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.popupContent button:hover {
+  background-color: #2980b9; /* Darker blue color */
+}
+
+.popupContent .confirm-button {
+  background-color: #e74c3c; /* Red color */
+}
+
+.popupContent .confirm-button:hover {
+  background-color: #c0392b; /* Darker red color */
+}
+
+.popupContent .cancel-button {
+  background-color: #95a5a6; /* Grey color */
+}
+
+.popupContent .cancel-button:hover {
+  background-color: #7f8c8d; /* Darker grey color */
+}
+

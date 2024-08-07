@@ -1,79 +1,104 @@
-import Image from "next/image";
-import Link from "next/link";
-import styles from "@/app/ui/dashboard/vendor/vendor.module.css";
-import Search from "@/app/ui/dashboard/search/search";
-import Pagination from "@/app/ui/dashboard/pagination/pagination";
-import { fetchvendors } from "@/app/lib/data";
-import { deletevendor } from "@/app/lib/actions";
+"use client"
+import React, { useEffect, useRef } from 'react';
+import Pikaday from 'pikaday';
+import 'pikaday/css/pikaday.css';
 
-const vendorsPage = async ({ searchParams }) => {
-  const q = searchParams?.q || "";
-  const page = searchParams?.page || 1;
-  const { count, vendors } = await fetchvendors(q, page);
+const Page = () => {
+  const startDateRef = useRef(null);
+  const endDateRef = useRef(null);
+
+  useEffect(() => {
+    if (startDateRef.current) {
+      new Pikaday({
+        field: startDateRef.current,
+        format: 'DD-MM-YYYY',
+      });
+    }
+    if (endDateRef.current) {
+      new Pikaday({
+        field: endDateRef.current,
+        format: 'DD-MM-YYYY',
+      });
+    }
+  }, []);
+
+  const generateReport = () => {
+    const startDate = startDateRef.current.value;
+    const endDate = endDateRef.current.value;
+
+    if (!startDate || !endDate) {
+      alert('Please select both start and end dates');
+      return;
+    }
+
+    // Convert dates to desired format or fetch data between these dates
+    // Example logic for generating report data
+    console.log(`Generating report from ${startDate} to ${endDate}`);
+
+    // Replace the following with actual data fetching logic
+    const data = `Report from ${startDate} to ${endDate}`;
+
+    // Create a Blob from the data
+    const blob = new Blob([data], { type: 'text/plain' });
+
+    // Create a link element
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `report_${startDate}_to_${endDate}.txt`;
+
+    // Programmatically click the link to trigger the download
+    link.click();
+  };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.top}>
-        <Search placeholder="Search for a vendors..." />
-        <Link href="/dashboard/vendor/add">
-          <button className={styles.addButton}>Add New</button>
-        </Link>
-      </div>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <td>Vendors Name</td>
-            <td>Purchase Order Number</td>
-            <td>Number Of MRU Assigned</td>
-            <td>Vendor User</td>
-            <td>Status</td>
-            <td>Vendor Assigned</td>
-           
-          </tr>
-        </thead>
-        <tbody>
-          {vendors.map((vendor) => (
-            <tr key={vendor.id}>
-              <td>
-                <div className={styles.vendor}>
-                  <Image
-                    src={vendor.img || "/noavatar.png"}
-                    alt=""
-                    width={40}
-                    height={40}
-                    className={styles.vendorImage}
-                  />
-                  {vendor.VendorsName}
-                </div>
-              </td>
-              <td>{vendor.PurchaseOrderNumber}</td>
-              <td>{vendor.NumberOfMRUAssigned}</td>
-              <td>{vendor.VendorUser}</td>
-              <td>{vendor.Status}</td>
-              <td>{vendor.VendorAssigned}</td>
-              
-              <td>
-                <div className={styles.buttons}>
-                  <Link href={`/dashboard/vendor/${vendor.id}`}>
-                    <button className={`${styles.button} ${styles.view}`}>
-                      View
-                    </button>
-                  </Link>
-                  <form action={deletevendor}>
-                    <input type="hidden" name="id" value={vendor.id} />
-                    {/* <button className={`${styles.button} ${styles.delete}`}>
-                      Delete
-                    </button> */}
-                  </form>
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <Pagination count={count} />
+    <div className="container">
+      <label htmlFor="start-date">Start Date</label>
+      <input
+        type="text"
+        id="start-date"
+        placeholder="dd-mm-yyyy"
+        ref={startDateRef}
+      />
+      <label htmlFor="end-date">End Date</label>
+      <input
+        type="text"
+        id="end-date"
+        placeholder="dd-mm-yyyy"
+        ref={endDateRef}
+      />
+      <button onClick={generateReport}>Generate Report</button>
+      <style jsx>{`
+        .container {
+          display: flex;
+          align-items: flex-end;
+          color:black;
+          gap: 10px;
+        }
+
+        input[type="text"] {
+          width: 150px;
+          padding: 5px;
+          color:black;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+
+        button {
+          background-color: #00a7e1;
+          color: white;
+          padding: 10px 15px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+
+        button:hover {
+          background-color: #007bb3;
+        }
+      `}</style>
     </div>
   );
 };
 
-export default vendorsPage;
+export default Page;
+

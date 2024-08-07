@@ -28,8 +28,8 @@ const menuItems = [
       //   path: "/dashboard/users",
       //   icon: <MdSupervisedUserCircle />,
       // },
-      // {
-      //   title: "Vendor",
+      //  {
+      //    title: "Vendor",
       //   path: "/dashboard/vendor",
       //   icon: <MdShoppingBag />,      },
       {
@@ -59,8 +59,8 @@ const menuItems = [
         icon: <MdAnalytics />,
       },
       {
-        title: "Teams",
-        path: "/dashboard/teams",
+        title: "Members",
+        path: "/dashboard/Members",
         icon: <MdPeople />,
       },
     ],
