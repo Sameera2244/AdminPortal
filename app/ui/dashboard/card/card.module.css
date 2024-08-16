@@ -1,9 +1,11 @@
 /* card.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 .dashboard {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .summary {
@@ -21,31 +23,41 @@
   color: #333; /* Set text color to a dark shade for contrast */
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
 }
 
 .blueCard {
   background-color: #3498db; 
-  color:white;/* Add a blue border for visual distinction */
+  color:white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;/* Add a blue border for visual distinction */
 }
 
 .purpleCard {
   background-color: #9b59b6;
   color:white; /* Add a purple border for visual distinction */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
 }
 
 .lightPurpleCard {
   background-color: #d2b4de; 
   color:white;/* Add a light purple border for visual distinction */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
 }
 
 .greenCard {
   background-color: #2ecc71; 
   color:white;/* Add a green border for visual distinction */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
 }
 
 .mainContent {
   display: flex;
   flex-direction: column;
+  font-family: 'Roboto', sans-serif;
 }
 
 .chartCard {
@@ -66,37 +78,153 @@
 
 .vendorEfficiencyCard h4 {
   margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .vendorEfficiencyCard table {
   width: 100%;
   border-collapse: collapse;
+  font-family: 'Roboto', sans-serif;
 }
 
 .vendorEfficiencyCard table, .vendorEfficiencyCard th, .vendorEfficiencyCard td {
   border: 1px solid #ddd;
+  font-family: 'Roboto', sans-serif;
 }
 
 .vendorEfficiencyCard th, .vendorEfficiencyCard td {
   padding: 8px;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 .vendorEfficiencyCard th {
   background-color: #f2f2f2;
+  font-family: 'Roboto', sans-serif;
 }
 .chartCard table {
   width: 100%;
   border-collapse: collapse; /* Ensures borders are merged */
+  font-family: 'Roboto', sans-serif;
 }
 
 .chartCard th, .chartCard td {
   border: 1px solid #ddd; /* Light gray border for table cells */
   padding: 8px; /* Padding inside cells for better readability */
   text-align: left; /* Align text to the left */
+  font-family: 'Roboto', sans-serif;
 }
 
 .chartCard th {
   background-color: #f4f4f4; /* Light background for table headers */
   font-weight: bold; /* Bold text for headers */
+  font-family: 'Roboto', sans-serif;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vendorEfficiencyCard {
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.efficiencyTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.efficiencyTable th, .efficiencyTable td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.barContainer {
+  height: 8px;
+  background-color: #e0e0e0;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.newClientsBar {
+  height: 100%;
+  background-color: rgba(54, 162, 235, 0.6);
+}
+
+.recurringClientsBar {
+  height: 100%;
+  background-color: rgba(255, 99, 132, 0.6);
+}
+
+.pageviewsBar {
+  height: 100%;
+  background-color: rgba(255, 206, 86, 0.6);
+}
+
+.organicBar {
+  height: 100%;
+  background-color: rgba(75, 192, 192, 0.6);
+}
+
+/* card.module.css */
+
+.vendorTable {
+  font-family: 'Your-Admin-Panel-Font', sans-serif; /* Replace with your admin panel's font */
+  font-size: 14px; /* Adjust the size if necessary */
+  color: #333; /* Match this to your admin panel's text color */
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.vendorTable th,
+.vendorTable td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Add or modify border style to match your admin panel */
+}
+
+.vendorTable th {
+  background-color: #f4f4f4; /* Optional: Match the header background color to your admin panel */
+  font-weight: 600; /* Ensure header has a distinct style */
+}
+
+.vendorTable tr:hover {
+  background-color: #f1f1f1; /* Optional: Add a hover effect */
+}
+
+.vendorTable tr:nth-child(even) {
+  background-color: #f9f9f9; /* Optional: Different background for even rows */
+}
+
+.vendorEfficiencyCard table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'YourAdminPanelFontFamily', sans-serif;
+  font-size: 14px; /* Adjust the font size as needed */
+  color: #333; /* Adjust the color as needed */
+}
+
+.vendorEfficiencyCard th,
+.vendorEfficiencyCard td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.vendorEfficiencyCard th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.vendorEfficiencyCard tr:nth-child(even) {
+  background-color: #f9f9f9;
 }

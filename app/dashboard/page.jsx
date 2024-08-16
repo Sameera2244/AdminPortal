@@ -16,7 +16,7 @@ const Dashboard = () => {
         </div> */}
         <Card/>
         
-        {/* <Chart /> */}
+       <Chart /> 
       </div>
    
     </div>

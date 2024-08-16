@@ -313,7 +313,7 @@ const Page = () => {
             <th>Purchase Order No</th>
             <th>Vendor Details</th>
             <th>Date</th>
-            <th>Actions</th>
+            <th class="actions">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -342,8 +342,9 @@ const Page = () => {
                   <td>{order.purchaseOrderNo}</td>
                   <td>{order.vendorDetails}</td>
                   <td>{order.date}</td>
-                  <td>
-                    <button onClick={() => handleEditClick(index)}>Edit</button>
+                  <td class="actions">
+                    <button onClick={() => handleEditClick(index)}>Edit</button><br></br>
+                    <br></br>
                     <button onClick={() => handleDeleteClick(index)}>Delete</button>
                   </td>
                 </>
