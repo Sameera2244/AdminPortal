@@ -6,22 +6,21 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  font-family: Arial, sans-serif; /* Ensure consistent font */
+  margin-bottom: 20px; 
 }
 
 .exportSearch {
   display: flex;
   align-items: center;
-  font-family: Arial, sans-serif; /* Ensure consistent font */
+  font-family: Arial, sans-serif; 
 }
 
 .exportButton {
-  background-color: #1DC9B7;
+  background-color: #109814;
   border-radius: 5px;
   border: none;
   padding: 10px 20px;
+  color: white;
   font-weight: bold;
   cursor: pointer;
   margin-right: 10px;
@@ -39,28 +38,24 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
-  font-family: Arial, sans-serif; /* Ensure consistent font */
 }
-
 .stat {
-  background-color: #bdb1ef;
+  background-color:  whitesmoke;
   color: rgb(3, 3, 3);
   font-weight: bold;
   padding: 20px;
   text-align: center;
   flex: 1;
   margin: 0 10px;
-  border-radius: 5px;
-  border: 2px solid #bdb1ef;
-  font-family: Arial, sans-serif; /* Ensure consistent font */
+  border-radius: 5px ;
+  border:2px solid  whitesmoke;
 }
 
 .tabs {
   display: flex;
   justify-content: space-between; /* This will space out the items in the container */
   align-items: center; /* Center vertically if needed */
-  margin-bottom: 20px; /* Space below the tabs */
-  font-family: Arial, sans-serif; /* Ensure consistent font */
+  margin-bottom: 20px;/* Ensure consistent font */
 }
 
 .tabs button {
@@ -75,7 +70,7 @@
 }
 
 .historyy {
-  background-color: #FD3995;
+  background-color: #149e74;
 }
 
 .activeBut {
@@ -86,43 +81,51 @@
   background-color: #F5A623;
 }
 
-.uploadButton {
-  background-color: #1976e1;
-  margin-left: auto;
-  color: white !important;
-  font-family: Arial, sans-serif; /* Ensure consistent font */
-}
+
 
 .table {
   width: 100%;
   border-collapse: collapse;
   color: white; /* Set the default text color to black */
-  font-family: Arial, sans-serif; /* Ensure consistent font */
 }
+
 
 .table th,
 .table td {
-  border: 1px dotted #8f8989;
-  padding: 10px;
-  font-family: Arial, sans-serif; /* Ensure consistent font */
+  border: 1px dotted whitesmoke;
+  padding: 15px;
+  border-bottom: 1px solid #ddd; 
+}
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
 .table th {
-  background-color: #bdb1ef;
-  text-align: left;
+  background-color: rgb(139, 13, 13) !important;
+  text-align: center;
   border-radius: 2px;
-  color: rgb(30, 27, 27); /* Ensure the header text is black */
+  color: rgb(244, 238, 238); /* Ensure the header text is black */  
+  font-weight: bold;
+  font-size: larger;
+
+}
+
+th.actions,td.actions{
+  width:150px;
 }
 
 .table td {
   color: black; /* Ensure the cell text is black */
-  background-color: #e2dfef;
+ background-color: whitesmoke; 
+ border: 1px solid #ddd;
+ font-size: large; 
+
 }
 
 .table td select {
   width: 100%;
   padding: 5px;
-  font-family: Arial, sans-serif; /* Ensure consistent font */
+  font-family: Arial, sans-serif; 
 }
 
 .table td button {
@@ -132,7 +135,7 @@
   color: white;
   border: none;
   border-radius: 4px;
-  font-family: Arial, sans-serif; /* Ensure consistent font */
+
 }
 
 .popup {
@@ -141,14 +144,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  color: rgb(133, 131, 131);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .popupContent {
-  background: #574476;
+  background: linear-gradient(to right, black, red);
   padding: 20px;
   border-radius: 5px;
   width: 400px;
@@ -161,18 +164,19 @@
   width: 100%;
   margin: 10px 0;
   padding: 8px;
-  color: black;
+  color: rgb(133, 131, 131);
   font-family: Arial, sans-serif; /* Ensure consistent font */
 }
 
 .popupContent button {
   margin: 5px;
-  font-family: Arial, sans-serif; /* Ensure consistent font */
+  font-family: Arial, sans-serif; 
+  color:grey;/* Ensure consistent font */
 }
 
 .addButton {
-  background-color: #39A1F4; /* Your desired background color */
-  color: white; /* Button text color */
+  background-color: #118949; /* Your desired background color */
+  color: white !important; /* Button text color */
   border: none; /* Remove default border */
   padding: 10px 20px; /* Padding for button size */
   border-radius: 5px; /* Rounded corners */
@@ -202,14 +206,15 @@
 .searchButton {
   padding: 8px 15px;
   border: none;
-  background-color: #3498db; /* Blue color */
-  color: #fff;
+  background-color: #6e7e97; /* Blue color */
+  color: rgb(244, 237, 237);
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-family: Arial, sans-serif; /* Ensure consistent font */
+  font-weight: bold;
 }
 
 .searchButton:hover {
-  background-color: #2980b9; /* Darker blue color */
+  background-color: #0c1c2d; /* Darker blue color */
 }

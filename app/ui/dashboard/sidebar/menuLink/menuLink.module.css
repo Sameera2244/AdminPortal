@@ -5,12 +5,13 @@
   gap: 10px;
   margin: 5px 0px;
   border-radius: 10px;
-  color:rgb(245, 244, 244);
+  color:rgb(150, 148, 148);
+  font-weight: bold;
   font-family: 'Roboto', sans-serif;
 }
 
 .container:hover,
 .active {
-  background-color: #c4b9ea;
+  background: linear-gradient(to right, black, red);
   font-family: 'Roboto', sans-serif;
 }

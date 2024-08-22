@@ -5,6 +5,10 @@ import { Bar } from 'react-chartjs-2';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import 'chart.js/auto';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock, faClipboardList, faBolt, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+
+
 
 const Card = () => {
   const [date, setDate] = useState(new Date());
@@ -39,54 +43,58 @@ const Card = () => {
       {
         label: 'New Clients',
         data: vendorEfficiency.newClients,
-        backgroundColor: 'rgba(54, 162, 235, 0.6)',
-        borderColor: 'rgba(54, 162, 235, 1)',
+        backgroundColor: '#FF0000',
         borderWidth: 1,
       },
       {
         label: 'Recurring Clients',
         data: vendorEfficiency.recurringClients,
-        backgroundColor: 'rgba(255, 99, 132, 0.6)',
-        borderColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: '#000000', 
         borderWidth: 1,
       },
-      {
-        label: 'Pageviews',
-        data: vendorEfficiency.pageviews,
-        backgroundColor: 'rgba(255, 206, 86, 0.6)',
-        borderColor: 'rgba(255, 206, 86, 1)',
-        borderWidth: 1,
-      },
-      {
-        label: 'Organic',
-        data: vendorEfficiency.organic,
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 1,
-      },
+      // {
+      //   label: 'Pageviews',
+      //   data: vendorEfficiency.pageviews,
+      //   backgroundColor: '#F5A623',
+       
+      //   borderWidth: 1,
+      // },
+      // {
+      //   label: 'Organic',
+      //   data: vendorEfficiency.organic,
+      //   backgroundColor: '#D0021B',
+       
+      //   borderWidth: 1,
+      // },
     ],
   };
 
   return (
     <div className={styles.dashboard}>
-      <div className={styles.summary}>
-        <div className={`${styles.card} ${styles.blueCard}`}>
-          <h2>88.9%</h2>
-          <p>SERVER UP TIME</p>
-        </div>
-        <div className={`${styles.card} ${styles.purpleCard}`}>
-          <h2>30,982</h2>
-          <p>TOTAL USERS</p>
-        </div>
-        <div className={`${styles.card} ${styles.lightPurpleCard}`}>
-          <h2>65%</h2>
-          <p>DOWNLOAD</p>
-        </div>
-        <div className={`${styles.card} ${styles.greenCard}`}>
-          <h2>+62,870</h2>
-          <p>UPLOAD</p>
-        </div>
-      </div>
+ <div className={styles.summary}>
+  <div className={`${styles.card} ${styles.blueCard}`}>
+    <FontAwesomeIcon icon={faClock} className={styles.icon} />
+    <h2>308</h2>
+    <p>Pending Orders</p>
+  </div>
+  <div className={`${styles.card} ${styles.purpleCard}`}>
+    <FontAwesomeIcon icon={faClipboardList} className={styles.icon} />
+    <h2>392</h2>
+    <p>Active Orders</p>
+  </div>
+  <div className={`${styles.card} ${styles.lightPurpleCard}`}>
+    <FontAwesomeIcon icon={faBolt} className={styles.icon} />
+    <h2>85</h2>
+    <p>Active Meter Reader</p>
+  </div>
+  <div className={`${styles.card} ${styles.greenCard}`}>
+    <FontAwesomeIcon icon={faCheckCircle} className={styles.icon} />
+    <h2>63</h2>
+    <p>Completed Orders</p>
+  </div>
+</div>
+
+
 
       <div className={styles.mainContent}>
       <div className={`${styles.card} ${styles.chartCard}`}>

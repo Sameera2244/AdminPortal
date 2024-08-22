@@ -242,7 +242,7 @@ const Page = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <button className={styles.exportButton} onClick={() => exportCSV(orders)}>Export All CSV</button>
+        <button className={styles.exportButton} onClick={() => exportCSV(orders)}>Export csv</button>
         <button className={styles.addButton} onClick={handleAddNewClick}>Add New</button>
       </div>
       <div>
@@ -251,17 +251,17 @@ const Page = () => {
           <input
             type="text"
             id="start-date"
-            placeholder="dd-mm-yyyy"
+            placeholder="DD-MM-YYYY"
             ref={startDateRef}
           />
           <label htmlFor="end-date">End Date</label>
           <input
             type="text"
             id="end-date"
-            placeholder="dd-mm-yyyy"
+            placeholder="DD-MM-YYYY"
             ref={endDateRef}
           />
-          <button onClick={generateReport}>Filter by Date</button>
+          <button className={styles.filterbydate}onClick={generateReport}>Filter by Date</button>
         </div>
       </div>
 

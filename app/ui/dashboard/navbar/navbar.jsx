@@ -76,7 +76,7 @@ export default function Navbar({ onMenuToggle }) {
 
   return (
     <div>
-      <nav className={`shadow-md p-4 flex justify-between items-center ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+      <nav className={`shadow-md  p-4 flex justify-between items-center ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
         <div className="flex items-center">
           {/* Menu icon */}
           <button onClick={toggleMenu} className="p-2 focus:outline-none">

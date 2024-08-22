@@ -23,15 +23,6 @@ const menuItems = [
         path: "/dashboard",
         icon: <MdDashboard />,
       },
-      // {
-      //   title: "Users",
-      //   path: "/dashboard/users",
-      //   icon: <MdSupervisedUserCircle />,
-      // },
-      //  {
-      //    title: "Vendor",
-      //   path: "/dashboard/vendor",
-      //   icon: <MdShoppingBag />,      },
       {
         title: "Vendor Management",
         path: "/dashboard/vendormanagement",
@@ -42,17 +33,16 @@ const menuItems = [
         path: "/dashboard/poinprogress",
         icon: <MdShoppingBag />,
       },
-   
     ],
   },
   {
     title: "Analytics",
     list: [
-      {
-        title: "Revenue",
-        path: "/dashboard/revenue",
-        icon: <MdWork />,
-      },
+      // {
+      //   title: "Revenue",
+      //   path: "/dashboard/revenue",
+      //   icon: <MdWork />,
+      // },
       {
         title: "Reports",
         path: "/dashboard/reports",
@@ -86,11 +76,23 @@ const Sidebar = async () => {
   const { user } = await auth();
   return (
     <div className={styles.container}>
-      <div className={styles.user}>
+      {/* Logo section */}
+      <div className={styles.logoContainer}>
+        <Image
+          className={styles.logo}
+          src="/brontobytelogo1.png" // Replace with your logo path
+          alt="Logo"
+          width="150"
+          height="50"
+        />
+      </div>
+
+      {/* User section */}
+      {/* <div className={styles.user}>
         <Image
           className={styles.userImage}
           src={user.img || "/noavatar.png"}
-          alt=""
+          alt="User Image"
           width="50"
           height="50"
         />
@@ -98,7 +100,9 @@ const Sidebar = async () => {
           <span className={styles.username}>{user.username}</span>
           <span className={styles.userTitle}>Administrator</span>
         </div>
-      </div>
+      </div> */}
+
+      {/* Menu items */}
       <ul className={styles.list}>
         {menuItems.map((cat) => (
           <li key={cat.title}>
@@ -109,6 +113,8 @@ const Sidebar = async () => {
           </li>
         ))}
       </ul>
+
+      {/* Logout button */}
       <form
         action={async () => {
           "use server";
@@ -125,3 +131,4 @@ const Sidebar = async () => {
 };
 
 export default Sidebar;
+

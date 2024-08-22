@@ -56,38 +56,38 @@ const Calendar = () => {
     return days;
   };
 
-  return (
-    <div className={styles.calendar}>
-      <div className={styles.header}>
-        <button onClick={handlePrevMonth}>&lt;</button>
-        <span>{currentDate.toLocaleString('default', { month: 'long' })} {currentYear}</span>
-        <button onClick={handleNextMonth}>&gt;</button>
-      </div>
-      <div className={styles.daysOfWeek}>
-        {daysOfWeek.map(day => (
-          <div key={day} className={styles.dayOfWeek}>
-            {day}
-          </div>
-        ))}
-      </div>
-      <div className={styles.days}>{renderDays()}</div>
+  // return (
+  //   // <div className={styles.calendar}>
+  //   //   <div className={styles.header}>
+  //   //     <button onClick={handlePrevMonth}>&lt;</button>
+  //   //     <span>{currentDate.toLocaleString('default', { month: 'long' })} {currentYear}</span>
+  //   //     <button onClick={handleNextMonth}>&gt;</button>
+  //   //   </div>
+  //   //   <div className={styles.daysOfWeek}>
+  //   //     {daysOfWeek.map(day => (
+  //   //       <div key={day} className={styles.dayOfWeek}>
+  //   //         {day}
+  //   //       </div>
+  //   //     ))}
+  //   //   </div>
+  //   //   <div className={styles.days}>{renderDays()}</div>
 
-      {showModal && (
-        <div className={styles.modalOverlay} onClick={closeModal}>
-          <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
-            <h2>{`Tasks for ${selectedDate.toDateString()}`}</h2>
-            <p><strong>Vendor:</strong> {modalData.vendorName}</p>
-            <ul>
-              {modalData.tasks.map((task, index) => (
-                <li key={index}>{task}</li>
-              ))}
-            </ul>
-            <button className={styles.closeButton} onClick={closeModal}>Close</button>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  //   //   {showModal && (
+  //   //     <div className={styles.modalOverlay} onClick={closeModal}>
+  //   //       <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+  //   //         <h2>{`Tasks for ${selectedDate.toDateString()}`}</h2>
+  //   //         <p><strong>Vendor:</strong> {modalData.vendorName}</p>
+  //   //         <ul>
+  //   //           {modalData.tasks.map((task, index) => (
+  //   //             <li key={index}>{task}</li>
+  //   //           ))}
+  //   //         </ul>
+  //   //         <button className={styles.closeButton} onClick={closeModal}>Close</button>
+  //   //       </div>
+  //   //     </div>
+  //   //   )}
+  //   // </div>
+  // );
 };
 
 export default Calendar;
