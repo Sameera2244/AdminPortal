@@ -70,8 +70,8 @@ const Card = () => {
   };
 
   return (
-    <div className={styles.dashboard}>
- <div className={styles.summary}>
+  <div className={styles.dashboard}>
+  <div className={styles.summary}>
   <div className={`${styles.card} ${styles.blueCard}`}>
     <FontAwesomeIcon icon={faClock} className={styles.icon} />
     <h2>308</h2>

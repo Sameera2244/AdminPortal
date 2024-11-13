@@ -16,7 +16,7 @@ import { auth, signOut } from "@/app/auth";
 
 const menuItems = [
   {
-    title: "Pages",
+    title: "Meter Readers",
     list: [
       {
         title: "Dashboard",
@@ -33,25 +33,16 @@ const menuItems = [
         path: "/dashboard/poinprogress",
         icon: <MdShoppingBag />,
       },
+     
     ],
   },
   {
-    title: "Analytics",
+    title: "Field Service",
     list: [
-      // {
-      //   title: "Revenue",
-      //   path: "/dashboard/revenue",
-      //   icon: <MdWork />,
-      // },
       {
-        title: "Reports",
-        path: "/dashboard/reports",
-        icon: <MdAnalytics />,
-      },
-      {
-        title: "Members",
-        path: "/dashboard/Members",
-        icon: <MdPeople />,
+        title: "Field Services",
+        path: "/dashboard/fieldService",
+        icon: <MdShoppingBag />,
       },
     ],
   },
